@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import imageio
 
 from copy import copy as copy
-from pprint import pprint
+import time
 
 import sys
 import os
@@ -74,17 +74,17 @@ def menu(models, images):
     while do:
         print(
 """
-
+\033[1m
 \t\t  >>Models<<
 [{:3d}] \t[Option] \t{:2s}[Description]
-_________________________________________________
+_________________________________________________\033[0m
 {:s}
 
 ||=============================================||
-
+\033[1m
 \t\t  >>Images<<
 [{:3d}] [File Class] {:2s}[Full Name File]
-_________________________________________________
+_________________________________________________\033[0m
 {:s}
 
 """.format(
@@ -104,48 +104,46 @@ while repeat:
     print(" Insert -1 to Exit ")
 
     try:
-        model_id = int(input(">>>Model?\t:"))
-    except:
-        os.system('cls' if os.name == 'nt' else 'clear')
-        _ = input("Input Not Admited, Press Any Key to Continue...")
-        break
-    else:
+        model_id = int(input("\033[1m>>>Model?\t:\033[0m"))
         if model_id == -1:
             repeat = False
             break
         else:
             pass
-
-    try:
-        image_id = int(input(">>>Image?\t:"))
-    except:
-        os.system('cls' if os.name == 'nt' else 'clear')
-        _ = input("Input Not Admited, Press Any Key to Continue...")
-        break
-    else:
+        
+        image_id = int(input("\033[1m>>>Image?\t:\033[0m"))
         if image_id == -1:
             repeat = False
             break
         else:
             pass
-
-    try:
-        current_model = keras.models.load_model(filepath=model_container[model_id])
-        current_image = imageio.imread("./test/" + current_test_images[image_id])
     except:
-        break
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("\t\033[1mInput Not Admited\033[0m\n")
+        time.sleep(1)
     else:
-        pass
-        
-        to_predict = np.ndarray((1,32,32,3))
-        to_predict[0,] = current_image
-        
-        prediction = current_model.predict(to_predict)
-        
-        nice_prediction = np.zeros(10, dtype=int)
-        nice_prediction[prediction.argmax()] = 1
-        
-        nice_names = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
-        
-        print("\n\n\t ", nice_prediction, " is a {:s}".format(nice_names[prediction.argmax()]))
+        try:
+            current_model = keras.models.load_model(filepath=model_container[model_id])
+            current_image = imageio.imread("./test/" + current_test_images[image_id])
+        except:
+            break
+        else:
+            pass
+
+            to_predict = np.ndarray((1,32,32,3))
+            to_predict[0,] = current_image
+
+            prediction = current_model.predict(to_predict)
+
+            nice_prediction = np.zeros(10, dtype=int)
+            nice_prediction[prediction.argmax()] = 1
+
+            nice_names = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
+
+            out_str = "\n\n\t " + str(nice_prediction.tolist()) + " is a {:s}\n\n".format(nice_names[prediction.argmax()])
+            print("\033[1m" + out_str + "\033[0m")
+
+            time.sleep(3)
+
+print("\033[1m E X E C U T I O N   E N D E D \033[0m")
 
