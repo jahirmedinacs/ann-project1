@@ -11,7 +11,7 @@
     });
 </script>
 
-# Convolutiona Neural Network - CIFAR 10
+# Convolutional Neural Network - CIFAR 10
 
 Authors: 
 
@@ -46,21 +46,22 @@ Authors:
 > 
 > Metrics : **Accuracy Default by Loss Function : Categorical**
 
-### Why This Architecture?
+### Activations Functions Formulas
 
 #### SeLU
 SeLU stands for ***scaled exponential linear units*** : 
 
 <div id="selu"></div>
 
-where for standard scaled inputs (mean 0, standar deviation 1), the values are Î±=1.6732~, Î»=1.0507~.
+where for standard scaled inputs (mean 0, standard deviation 1), the values are Î±=1.6732~, Î»=1.0507~.
 
 #### SoftMax
-
 
 <div id="softmax"></div>
 
 ## Data
+
+
 
 ### Batched Data (Binaries for Python)
 
@@ -72,7 +73,7 @@ where for standard scaled inputs (mean 0, standar deviation 1), the values are Î
 
 ## Training
 
-### Training Behavior Plot
+### Training Evolution Plot
 
 #### First Training
 
@@ -80,21 +81,21 @@ where for standard scaled inputs (mean 0, standar deviation 1), the values are Î
 
 ![](./media/v0/loss-train.png)
 
-#### 5 epoch Post Training
+#### 5 Epoch Post Training
 
 ![](./media/v0/accu-post-train0.png)
 
 ![](./media/v0/loss-post-train0.png)
 
-#### 50 epoch Post Training
+#### 50 Epoch Post Training
 
-#### Accuracy
+##### Accuracy
 
 ![](./media/v0/accu-post-train1.png)
 
 ![](./media/v0/diff-accu-post-train1.png)
 
-#### Losseles
+##### Losses
 
 ![](./media/v0/loss-post-train1.png)
 
@@ -106,9 +107,9 @@ where for standard scaled inputs (mean 0, standar deviation 1), the values are Î
 
 ### v1
 
-This code was obtained [online](https://www.learnopencv.com/image-classification-using-convolutional-neural-networks-in-keras/), and used as dummy for learning (How to properly use Keras), more even, this kind of architecture uses a ***RMS Prop*** optmization, how works better with *Recurrent Neural Networks* and *insuficiente* batch size.
+This code was obtained [online](https://www.learnopencv.com/image-classification-using-convolutional-neural-networks-in-keras/), and used as a dummy for learning (How to properly use Keras), more even, this kind of architecture uses a ***RMS Prop*** optimization, how works better with *Recurrent Neural Networks* and *insufficient* batch size.
 
-### Desing
+#### Desing
 
 | Id Layer  | Neurons/Size  | Filter Size   | Activation    | Dropout   | Max-Pooling   |    Layer Type     |
 |:--------: |:------------: |:-----------:  |:----------:   |:-------:  |:-----------:  |:----------------: |
@@ -143,11 +144,10 @@ This code was obtained [online](https://www.learnopencv.com/image-classification
 
 ### v2
 
-In this version, was analized the batch size and with more enfasys the number of epochs per train.
-The network architectur remaing the same
+In this version, was analyzed the batch size and with higher emphasis the number of epochs per train.
+The network architecture remain the same.
 
-
-### Desing
+#### Desing
 
 > CNN Optmizer : **RMS prop**
 > 
@@ -167,7 +167,9 @@ The network architectur remaing the same
 
 ### v3
 
-### Desing
+The idea behind modifications on this version was to find the best (more fastest) architecture. To archive that, we were continuously changing some ***layer activation functions, layer size, and dropout probability***, the architecture below shows the last changed perform over parameters.
+
+#### Desing
 
 | Id Layer  | Neurons/Size  | Filter Size   |  Activation   | Dropout   | Max-Pooling   |    Layer Type     |
 |:--------: |:------------: |:-----------:  |:------------: |:-------:  |:-----------:  |:----------------: |
@@ -204,7 +206,11 @@ The network architectur remaing the same
 
 ### v4
 
-### Desing
+Using the same ***activation functions at the same layers*** we try to improve the accuracy and reduce losses; to arrive at our objective, we use a more *smooth* variation in the layers size, and increasing the number of ***epochs***.
+
+One valuable thing learned in this variant was more about control instead of network architecture design; even increasing significantly the number of epochs, the training evolution goes from good to **worse**. Like can be see in the plot below, when the minimum was archived the ***CNN*** continues trying to perform better, then, and because we were using some non linear activation functions, the accuracy goes to a very low value following the path of our architecture in his way to *" the global minimum"* but in the wrong direction. ***In few words, using 500 epochs, we force the net to goes from a maximum to minimum and later again to the maximum (the gradient takes the wrong direction)***
+
+#### Desing
 
 |       | Neurons/Size  | Filter Size   |  Activation   | Dropout   | Max-Pooling   |    Layer Type     |
 |:--:   |:------------: |:-----------:  |:------------: |:-------:  |:-----------:  |:----------------: |
