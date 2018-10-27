@@ -1,0 +1,9 @@
+post-training 0
+
+batch_size = 5000
+epochs = 5
+
+post-training 1
+
+batch_size = 2000
+epochs = 50

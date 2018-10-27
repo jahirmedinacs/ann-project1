@@ -1,0 +1,84 @@
+#Architecture
+def createModel(input_shape, nClasses):
+    model = Sequential()
+    
+    model.add(Conv2D(36, (3, 3), padding='same', activation='relu', input_shape=input_shape))
+    model.add(Conv2D(36, (2, 2), activation='selu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.2))
+ 
+    model.add(Conv2D(48, (2, 2), padding='same', activation='selu'))
+    model.add(Conv2D(48, (4, 4), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.3))
+    
+    model.add(Conv2D(64, (3, 3), padding='same', activation='relu'))
+    model.add(Conv2D(64, (3, 3), activation='selu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.3))
+ 
+    model.add(Flatten())
+    model.add(Dense(500, activation='selu'))
+    model.add(Dropout(0.8))
+    model.add(Dense(300, activation='relu'))
+    model.add(Dropout(0.4))
+    model.add(Dense(nClasses, activation='softmax'))
+     
+    return model
+In [28]:
+epochs = 150
+batch_size = 1000
+
+model1 = createModel(x_train.shape[1:], num_classes)
+
+model1.compile(optimizer='adadelta', loss='categorical_crossentropy', metrics=['accuracy'])
+In [29]:
+model1.summary()
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_14 (Conv2D)           (None, 32, 32, 36)        1008      
+_________________________________________________________________
+conv2d_15 (Conv2D)           (None, 31, 31, 36)        5220      
+_________________________________________________________________
+max_pooling2d_7 (MaxPooling2 (None, 15, 15, 36)        0         
+_________________________________________________________________
+dropout_13 (Dropout)         (None, 15, 15, 36)        0         
+_________________________________________________________________
+conv2d_16 (Conv2D)           (None, 15, 15, 48)        6960      
+_________________________________________________________________
+conv2d_17 (Conv2D)           (None, 12, 12, 48)        36912     
+_________________________________________________________________
+max_pooling2d_8 (MaxPooling2 (None, 6, 6, 48)          0         
+_________________________________________________________________
+dropout_14 (Dropout)         (None, 6, 6, 48)          0         
+_________________________________________________________________
+conv2d_18 (Conv2D)           (None, 6, 6, 64)          27712     
+_________________________________________________________________
+conv2d_19 (Conv2D)           (None, 4, 4, 64)          36928     
+_________________________________________________________________
+max_pooling2d_9 (MaxPooling2 (None, 2, 2, 64)          0         
+_________________________________________________________________
+dropout_15 (Dropout)         (None, 2, 2, 64)          0         
+_________________________________________________________________
+flatten_3 (Flatten)          (None, 256)               0         
+_________________________________________________________________
+dense_8 (Dense)              (None, 500)               128500    
+_________________________________________________________________
+dropout_16 (Dropout)         (None, 500)               0         
+_________________________________________________________________
+dense_9 (Dense)              (None, 300)               150300    
+_________________________________________________________________
+dropout_17 (Dropout)         (None, 300)               0         
+_________________________________________________________________
+dense_10 (Dense)             (None, 10)                3010      
+=================================================================
+Total params: 396,550
+Trainable params: 396,550
+Non-trainable params: 0
+_________________________________________________________________
+In [30]:
+history = model1.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, verbose=1, 
+                   validation_data=(x_test, y_test))
+
+model1.evaluate(x_test, y_test)

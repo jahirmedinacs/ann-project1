@@ -1,0 +1,41 @@
+from keras.models import Sequential
+from keras.layers import Dense, Conv2D, MaxPooling2D, Dropout, Flatten
+
+#Architecture
+
+def createModel(input_shape, nClasses):
+    model = Sequential()
+    
+    model.add(Conv2D(32, (3, 3), padding='same', activation='relu', input_shape=input_shape))
+    model.add(Conv2D(32, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.25))
+ 
+    model.add(Conv2D(64, (3, 3), padding='same', activation='relu'))
+    model.add(Conv2D(64, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.25))
+ 
+    model.add(Conv2D(64, (3, 3), padding='same', activation='relu'))
+    model.add(Conv2D(64, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.25))
+ 
+    model.add(Flatten())
+    model.add(Dense(512, activation='relu'))
+    model.add(Dropout(0.5))
+    model.add(Dense(nClasses, activation='softmax'))
+     
+    return model
+
+    epochs = 100
+batch_size = 1000
+
+model1 = createModel(x_train.shape[1:], num_classes)
+
+model1.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
+ 
+history = model1.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, verbose=1, 
+                   validation_data=(x_test, y_test))
+ 
+model1.evaluate(x_test, y_test)

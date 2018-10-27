@@ -1,0 +1,119 @@
+from keras.models import Sequential
+from keras.layers import Dense, Conv2D, MaxPooling2D, Dropout, Flatten
+
+#Architecture
+
+"""
+def createModel(input_shape, nClasses):
+    model = Sequential()
+    
+    model.add(Conv2D(32, (3, 3), padding='same', activation='relu', input_shape=input_shape))
+    model.add(Conv2D(32, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.25))
+ 
+    model.add(Conv2D(64, (3, 3), padding='same', activation='relu'))
+    model.add(Conv2D(64, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.25))
+ 
+    model.add(Conv2D(64, (3, 3), padding='same', activation='relu'))
+    model.add(Conv2D(64, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.25))
+ 
+    model.add(Flatten())
+    model.add(Dense(512, activation='relu'))
+    model.add(Dropout(0.5))
+    model.add(Dense(nClasses, activation='softmax'))
+     
+    return model
+"""
+
+def createModel(input_shape, nClasses):
+    model = Sequential()
+    
+    model.add(Conv2D(36, (3, 3), padding='same', activation='hard_sigmoid', input_shape=input_shape))
+    model.add(Conv2D(48, (5, 5), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.3))
+ 
+    model.add(Conv2D(64, (3, 3), padding='same', activation='exponential'))
+    model.add(Conv2D(72, (5, 5), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.25))
+ 
+    model.add(Conv2D(64, (3, 3), padding='same', activation='relu'))
+    model.add(Conv2D(64, (3, 3), activation='tanh'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.4))
+ 
+    model.add(Flatten())
+    model.add(Dense(400, activation='relu'))
+    model.add(Dropout(0.8))
+    model.add(Dense(200, activation='relu'))
+    model.add(Dropout(0.4))
+    model.add(Dense(100, activation='tanh'))
+    model.add(Dropout(0.3))
+    model.add(Dense(nClasses, activation='softmax'))
+     
+    return model
+
+
+epochs = 100
+
+batch_size = 1000
+
+model1 = createModel(x_train.shape[1:], num_classes)
+
+model1.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
+
+
+model1.summary()
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_37 (Conv2D)           (None, 32, 32, 36)        1008      
+_________________________________________________________________
+conv2d_38 (Conv2D)           (None, 28, 28, 48)        43248     
+_________________________________________________________________
+max_pooling2d_14 (MaxPooling (None, 14, 14, 48)        0         
+_________________________________________________________________
+dropout_17 (Dropout)         (None, 14, 14, 48)        0         
+_________________________________________________________________
+conv2d_39 (Conv2D)           (None, 14, 14, 64)        27712     
+_________________________________________________________________
+conv2d_40 (Conv2D)           (None, 10, 10, 72)        115272    
+_________________________________________________________________
+max_pooling2d_15 (MaxPooling (None, 5, 5, 72)          0         
+_________________________________________________________________
+dropout_18 (Dropout)         (None, 5, 5, 72)          0         
+_________________________________________________________________
+conv2d_41 (Conv2D)           (None, 5, 5, 64)          41536     
+_________________________________________________________________
+conv2d_42 (Conv2D)           (None, 3, 3, 64)          36928     
+_________________________________________________________________
+max_pooling2d_16 (MaxPooling (None, 1, 1, 64)          0         
+_________________________________________________________________
+dropout_19 (Dropout)         (None, 1, 1, 64)          0         
+_________________________________________________________________
+flatten_2 (Flatten)          (None, 64)                0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 400)               26000     
+_________________________________________________________________
+dropout_20 (Dropout)         (None, 400)               0         
+_________________________________________________________________
+dense_6 (Dense)              (None, 200)               80200     
+_________________________________________________________________
+dropout_21 (Dropout)         (None, 200)               0         
+_________________________________________________________________
+dense_7 (Dense)              (None, 100)               20100     
+_________________________________________________________________
+dropout_22 (Dropout)         (None, 100)               0         
+_________________________________________________________________
+dense_8 (Dense)              (None, 10)                1010      
+=================================================================
+Total params: 393,014
+Trainable params: 393,014
+Non-trainable params: 0
+_________________________________________________________________
