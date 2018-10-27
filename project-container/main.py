@@ -1,62 +1,28 @@
-
-# coding: utf-8
-
-# In[1]:
-
-
 import numpy as np
-
 import matplotlib.pyplot as plt
-
-import imageio
-
-from copy import copy as copy
-import time
-
-import sys
-import os
-import random
-
-
-# In[2]:
-
 
 import keras
 
+import imageio
 
-# In[3]:
+import time
+import random
 
+import os
 
-from keras.models import Sequential
-from keras.layers import Dense, Conv2D, MaxPooling2D, Dropout, Flatten
+MODELS = 5
+SAMPLES = 10
 
-
-# In[4]:
-
-
-models = 5
-model_container = [None for _ in range(models)]
+model_container = [None for _ in range(MODELS)]
 for file_name in os.listdir():
     if "ann_model" in file_name:
         model_container[int(file_name[-1])] = file_name
-
-
-# In[5]:
-
 
 image_container = []
 for file_name in os.listdir("./test"):
     image_container += [file_name]
 
-
-# In[6]:
-
-
-samples = 10
-current_test_images = random.sample(image_container, samples)
-
-
-# In[7]:
+current_test_images = random.sample(image_container, SAMPLES)
 
 
 def menu(models, images):
@@ -91,10 +57,6 @@ _________________________________________________\033[0m
     -1, "\t", models_text,
     -1, "\t", images_text))
         do = False
-
-
-# In[8]:
-
 
 repeat = True
 while repeat:
