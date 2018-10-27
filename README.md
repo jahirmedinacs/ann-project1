@@ -64,15 +64,11 @@ where for standard scaled inputs (mean 0, standar deviation 1), the values are Î
 
 ### Batched Data (Binaries for Python)
 
-<center>
 ![](./media/disk-bird.png)
-</center>
 
 ### Keras CIFAR 10
 
-<center>
 ![](./media/online-bird.png)
-</center>
 
 ## Training
 
@@ -80,45 +76,29 @@ where for standard scaled inputs (mean 0, standar deviation 1), the values are Î
 
 #### First Training
 
-<center>
 ![](./media/v0/accu-train.png)
-</center>
 
-<center>
 ![](./media/v0/loss-train.png)
-</center>
 
 #### 5 epoch Post Training
 
-<center>
 ![](./media/v0/accu-post-train0.png)
-</center>
 
-<center>
 ![](./media/v0/loss-post-train0.png)
-</center>
 
 #### 50 epoch Post Training
 
 #### Accuracy
 
-<center>
 ![](./media/v0/accu-post-train1.png)
-</center>
 
-<center>
 ![](./media/v0/diff-accu-post-train1.png)
-</center>
 
 #### Losseles
 
-<center>
 ![](./media/v0/loss-post-train1.png)
-</center>
 
-<center>
 ![](./media/v0/diff-loss-post-train1.png)
-</center>
 
 ## Conclusion
 
@@ -157,13 +137,9 @@ This code was obtained [online](https://www.learnopencv.com/image-classification
 
 #### Training Plot
 
-<center>
 ![](./media/v1/accu.png)
-</center>
 
-<center>
 ![](./media/v1/loss.png)
-</center>
 
 ### v2
 
@@ -185,13 +161,9 @@ The network architectur remaing the same
 
 #### Training Plot
 
-<center>
 ![](./media/v2/accu.png)
-</center>
 
-<center>
 ![](./media/v2/loss.png)
-</center>
 
 ### v3
 
@@ -226,13 +198,9 @@ The network architectur remaing the same
 
 #### Training Plot
 
-<center>
 ![](./media/v3/accu.png)
-</center>
 
-<center>
 ![](./media/v3/loss.png)
-</center>
 
 ### v4
 
@@ -267,10 +235,6 @@ The network architectur remaing the same
 
 #### Training Plot
 
-<center>
 ![](./media/v4/accu.png)
-</center>
 
-<center>
 ![](./media/v4/loss.png)
-</center>
