@@ -20,25 +20,7 @@ Authors:
 - **Jeffry Erwin Murrugarra Llerena**
     * *USP #* **10655837** 
 
-## Note and Important Links
-
-### Note
-**Take in consideration this the finaly relatory of a project (formated to also be only).**
-### Important Links
-
-- [Relatory Online Version]("https://www.jahirmedina.com/cnn-project2/")
-
-#### Notebook
-
-- [CNN Training Notebook]("https://nbviewer.jupyter.org/github/jahirmedinacs/cnn-project2/blob/master/notebooks/ANN%20-%20CIFAR%2010.ipynb")
-
-- [After Training Demo Notebook]("https://nbviewer.jupyter.org/github/jahirmedinacs/cnn-project2/blob/master/notebooks/main.ipynb")
-
-#### Script
-
-- [CNN Training Script]("https://raw.githubusercontent.com/jahirmedinacs/cnn-project2/master/project-container/cnn.py")
-
-- [After Training Demo Script]("https://raw.githubusercontent.com/jahirmedinacs/cnn-project2/master/project-container/main.py")
+[**Note**](./note.html)
 
 ## Architecture
 
@@ -131,7 +113,7 @@ where for standard scaled inputs (mean 0, standard deviation 1), the values are 
 
 This code was obtained [online](https://www.learnopencv.com/image-classification-using-convolutional-neural-networks-in-keras/), and used as a dummy for learning (How to properly use Keras), more even, this kind of architecture uses a ***RMS Prop*** optimization, how works better with *Recurrent Neural Networks* and *insufficient* batch size.
 
-#### Desing
+#### Design
 
 | Id Lyr.  | Lyr. Size  | Fltr. Size   | Activation    | Dropout   | Max-Pool   |    Layer Type     |
 |:--------: |:------------: |:-----------:  |:----------:   |:-------:  |:-----------:  |:----------------: |
@@ -169,7 +151,7 @@ This code was obtained [online](https://www.learnopencv.com/image-classification
 In this version, was analyzed the batch size and with higher emphasis the number of epochs per train.
 The network architecture remain the same.
 
-#### Desing
+#### Design
 
 > CNN Optmizer : **RMS prop**
 > 
@@ -191,7 +173,7 @@ The network architecture remain the same.
 
 The idea behind modifications on this version was to find the best (more fastest) architecture. To archive that, we were continuously changing some ***layer activation functions, layer size, and dropout probability***, the architecture below shows the last changed perform over parameters.
 
-#### Desing
+#### Design
 
 | Id Lyr.  | Lyr. Size  | Fltr. Size   |  Activation   | Dropout   | Max-Pool   |    Layer Type     |
 |:--------: |:------------: |:-----------:  |:------------: |:-------:  |:-----------:  |:----------------: |
@@ -232,7 +214,7 @@ Using the same ***activation functions at the same layers*** we try to improve t
 
 One valuable thing learned in this variant was more about control instead of network architecture design; even increasing significantly the number of epochs, the training evolution goes from good to **worse**. Like can be see in the plot below, when the minimum was archived the ***CNN*** continues trying to perform better, then, and because we were using some non linear activation functions, the accuracy goes to a very low value following the path of our architecture in his way to *" the global minimum"* but in the wrong direction. ***In few words, using 500 epochs, we force the net to goes from a maximum to minimum and later again to the maximum (the gradient takes the wrong direction)***
 
-#### Desing
+#### Design
 
 | Id Lyr.  | Lyr. Size  | Fltr. Size   |  Activation   | Dropout   | Max-Pool   |    Layer Type     |
 |:--:   |:------------: |:-----------:  |:------------: |:-------:  |:-----------:  |:----------------: |
