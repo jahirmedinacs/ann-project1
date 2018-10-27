@@ -20,24 +20,34 @@ Authors:
 - **Jeffry Erwin Murrugarra Llerena**
     * *USP #* **10655837** 
 
+## Note and Important Links
+
+> **Take in consideration this the finaly relatory of a project (formated to also be only).**
+> 
+> Important Links
+
+[]()
+
 ## Architecture
+
+
 
 ### Description
 
-| Id Layer  | Neurons/Size  | Filter Size   | Activation    | Dropout   | Max-Pooling   |    Layer Type     |
+| Id Lyr.  | Lyr. Size  | Fltr. Size   | Activation    | Dropout   | Max-Pool   |    Layer Type     |
 |:--------: |:------------: |:-----------:  |:----------:   |:-------:  |:-----------:  |:----------------: |
 |     0     |    32x32x3    |      -        |      -        |    -      |      -        |    Input Layer    |
-|     1     |      36       |     3x3       |    ReLU       |   0.0     |      -        | 2D Convolutional  |
-|     2     |      36       |     2x2       |    SeLU       |   0.2     |      -        | 2D Convolutional  |
+|     1     |      36       |     3x3       |    ReLU       |   0.0     |      -        | Convolutional  |
+|     2     |      36       |     2x2       |    SeLU       |   0.2     |      -        | Convolutional  |
 |     3     |       -       |      -        |      -        |    -      |     2x2       |      Pooling      |
-|     4     |      48       |     2x2       |    SeLU       |   0.0     |      -        | 2D Convolutional  |
-|     5     |      48       |     4x4       |    ReLU       |   0.3     |      -        | 2D Convolutional  |
+|     4     |      48       |     2x2       |    SeLU       |   0.0     |      -        | Convolutional  |
+|     5     |      48       |     4x4       |    ReLU       |   0.3     |      -        | Convolutional  |
 |     6     |       -       |      -        |      -        |    -      |     2x2       |      Pooling      |
-|     7     |      64       |     3x3       |    ReLU       |   0.0     |      -        | 2D Convolutional  |
-|     8     |      64       |     3x3       |    SeLU       |   0.3     |      -        | 2D Convolutional  |
+|     7     |      64       |     3x3       |    ReLU       |   0.0     |      -        | Convolutional  |
+|     8     |      64       |     3x3       |    SeLU       |   0.3     |      -        | Convolutional  |
 |     9     |       -       |      -        |      -        |    -      |     2x2       |      Pooling      |
-|    10     |      500      |      -        |    SeLU       |   0.8     |      -        |  Fully Connected  |
-|    11     |      300      |      -        |    ReLU       |   0.4     |      -        |  Fully Connected  |
+|    10     |      500      |      -        |    SeLU       |   0.8     |      -        |  Fully Conn.  |
+|    11     |      300      |      -        |    ReLU       |   0.4     |      -        |  Fully Conn.  |
 |    12     |      10       |      -        |   SoftMax     |   0.0     |      -        |   Output Layer    |
 
 > CNN Optmizer : **Ada Delta**
@@ -111,19 +121,19 @@ This code was obtained [online](https://www.learnopencv.com/image-classification
 
 #### Desing
 
-| Id Layer  | Neurons/Size  | Filter Size   | Activation    | Dropout   | Max-Pooling   |    Layer Type     |
+| Id Lyr.  | Lyr. Size  | Fltr. Size   | Activation    | Dropout   | Max-Pool   |    Layer Type     |
 |:--------: |:------------: |:-----------:  |:----------:   |:-------:  |:-----------:  |:----------------: |
 |     0     |    32x32x3    |      -        |      -        |    -      |      -        |    Input Layer    |
-|     1     |      32       |     3x3       |    ReLU       |   0.0     |      -        | 2D Convolutional  |
-|     2     |      32       |     3x3       |    ReLU       |   0.25    |      -        | 2D Convolutional  |
+|     1     |      32       |     3x3       |    ReLU       |   0.0     |      -        | Convolutional  |
+|     2     |      32       |     3x3       |    ReLU       |   0.25    |      -        | Convolutional  |
 |     3     |       -       |      -        |      -        |    -      |     2x2       |      Pooling      |
-|     4     |      64       |     3x3       |    ReLU       |   0.0     |      -        | 2D Convolutional  |
-|     5     |      64       |     3x3       |    ReLU       |   0.25    |      -        | 2D Convolutional  |
+|     4     |      64       |     3x3       |    ReLU       |   0.0     |      -        | Convolutional  |
+|     5     |      64       |     3x3       |    ReLU       |   0.25    |      -        | Convolutional  |
 |     6     |       -       |      -        |      -        |    -      |     2x2       |      Pooling      |
-|     7     |      64       |     3x3       |    ReLU       |   0.0     |      -        | 2D Convolutional  |
-|     8     |      64       |     3x3       |    ReLU       |   0.25    |      -        | 2D Convolutional  |
+|     7     |      64       |     3x3       |    ReLU       |   0.0     |      -        | Convolutional  |
+|     8     |      64       |     3x3       |    ReLU       |   0.25    |      -        | Convolutional  |
 |     9     |       -       |      -        |      -        |    -      |     2x2       |      Pooling      |
-|    10     |      512      |      -        |    SeLU       |   0.5     |      -        |  Fully Connected  |
+|    10     |      512      |      -        |    SeLU       |   0.5     |      -        |  Fully Conn.  |
 |    11     |      10       |      -        |   SoftMax     |   0.0     |      -        |   Output Layer    |
 
 > CNN Optmizer : **RMS prop**
@@ -171,21 +181,21 @@ The idea behind modifications on this version was to find the best (more fastest
 
 #### Desing
 
-| Id Layer  | Neurons/Size  | Filter Size   |  Activation   | Dropout   | Max-Pooling   |    Layer Type     |
+| Id Lyr.  | Lyr. Size  | Fltr. Size   |  Activation   | Dropout   | Max-Pool   |    Layer Type     |
 |:--------: |:------------: |:-----------:  |:------------: |:-------:  |:-----------:  |:----------------: |
 |     0     |    32x32x3    |      -        |       -       |    -      |      -        |    Input Layer    |
-|     1     |      36       |     3x3       | Hard Sigmoid  |   0.0     |      -        | 2D Convolutional  |
-|     2     |      48       |     5x5       |     ReLU      |   0.3     |      -        | 2D Convolutional  |
+|     1     |      36       |     3x3       | Hard Sigmoid  |   0.0     |      -        | Convolutional  |
+|     2     |      48       |     5x5       |     ReLU      |   0.3     |      -        | Convolutional  |
 |     3     |       -       |      -        |       -       |    -      |     2x2       |      Pooling      |
-|     4     |      64       |     3x3       |  Exponential  |   0.0     |      -        | 2D Convolutional  |
-|     5     |      72       |     5x5       |     ReLU      |   0.25    |      -        | 2D Convolutional  |
+|     4     |      64       |     3x3       |  Exponential  |   0.0     |      -        | Convolutional  |
+|     5     |      72       |     5x5       |     ReLU      |   0.25    |      -        | Convolutional  |
 |     6     |       -       |      -        |       -       |    -      |     2x2       |      Pooling      |
-|     7     |      64       |     3x3       |     ReLU      |   0.0     |      -        | 2D Convolutional  |
-|     8     |      64       |     3x3       |     Tanh      |   0.4     |      -        | 2D Convolutional  |
+|     7     |      64       |     3x3       |     ReLU      |   0.0     |      -        | Convolutional  |
+|     8     |      64       |     3x3       |     Tanh      |   0.4     |      -        | Convolutional  |
 |     9     |       -       |      -        |       -       |    -      |     2x2       |      Pooling      |
-|    10     |      400      |      -        |     ReLU      |   0.8     |      -        |  Fully Connected  |
-|    11     |      200      |      -        |     ReLU      |   0.4     |      -        |  Fully Connected  |
-|    12     |      100      |      -        |     Tanh      |   0.3     |      -        |  Fully Connected  |
+|    10     |      400      |      -        |     ReLU      |   0.8     |      -        |  Fully Conn.  |
+|    11     |      200      |      -        |     ReLU      |   0.4     |      -        |  Fully Conn.  |
+|    12     |      100      |      -        |     Tanh      |   0.3     |      -        |  Fully Conn.  |
 |    13     |      10       |      -        |    SoftMax    |   0.0     |      -        |   Output Layer    |
 
 > CNN Optmizer : **RMS prop**
@@ -212,21 +222,21 @@ One valuable thing learned in this variant was more about control instead of net
 
 #### Desing
 
-|       | Neurons/Size  | Filter Size   |  Activation   | Dropout   | Max-Pooling   |    Layer Type     |
+| Id Lyr.  | Lyr. Size  | Fltr. Size   |  Activation   | Dropout   | Max-Pool   |    Layer Type     |
 |:--:   |:------------: |:-----------:  |:------------: |:-------:  |:-----------:  |:----------------: |
 |  0    |    32x32x3    |      -        |       -       |    -      |      -        |    Input Layer    |
-|  1    |      36       |     3x3       | Hard Sigmoid  |   0.0     |      -        | 2D Convolutional  |
-|  2    |      48       |     5x5       |     ReLU      |   0.3     |      -        | 2D Convolutional  |
+|  1    |      36       |     3x3       | Hard Sigmoid  |   0.0     |      -        | Convolutional  |
+|  2    |      48       |     5x5       |     ReLU      |   0.3     |      -        | Convolutional  |
 |  3    |       -       |      -        |       -       |    -      |     2x2       |      Pooling      |
-|  4    |      48       |     3x3       |  Exponential  |   0.0     |      -        | 2D Convolutional  |
-|  5    |      48       |     5x5       |     ReLU      |   0.25    |      -        | 2D Convolutional  |
+|  4    |      48       |     3x3       |  Exponential  |   0.0     |      -        | Convolutional  |
+|  5    |      48       |     5x5       |     ReLU      |   0.25    |      -        | Convolutional  |
 |  6    |       -       |      -        |       -       |    -      |     2x2       |      Pooling      |
-|  7    |      48       |     3x3       |     ReLU      |   0.0     |      -        | 2D Convolutional  |
-|  8    |      64       |     3x3       |     Tanh      |   0.4     |      -        | 2D Convolutional  |
+|  7    |      48       |     3x3       |     ReLU      |   0.0     |      -        | Convolutional  |
+|  8    |      64       |     3x3       |     Tanh      |   0.4     |      -        | Convolutional  |
 |  9    |       -       |      -        |       -       |    -      |     2x2       |      Pooling      |
-| 10    |      400      |      -        |     ReLU      |   0.8     |      -        |  Fully Connected  |
-| 11    |      200      |      -        |     ReLU      |   0.4     |      -        |  Fully Connected  |
-| 12    |      100      |      -        |     Tanh      |   0.3     |      -        |  Fully Connected  |
+| 10    |      400      |      -        |     ReLU      |   0.8     |      -        |  Fully Conn.  |
+| 11    |      200      |      -        |     ReLU      |   0.4     |      -        |  Fully Conn.  |
+| 12    |      100      |      -        |     Tanh      |   0.3     |      -        |  Fully Conn.  |
 | 13    |      10       |      -        |    SoftMax    |   0.0     |      -        |   Output Layer    |
 
 > CNN Optmizer : **RMS prop**
