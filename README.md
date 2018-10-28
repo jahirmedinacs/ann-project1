@@ -57,6 +57,7 @@ The architecture below is the final step on a very long test of architectures mo
 ### Activations Functions Formulas
 
 #### SeLU
+
 SeLU stands for ***scaled exponential linear units*** : 
 
 <div id="selu"></div>
@@ -69,7 +70,7 @@ The softmax function is used in various multiclass classification methods, the o
 
 <div id="softmax"></div>
 
-#### Architectures Details
+### Architectures Details
 
 - The use of an equal number of neurons in consecutive layers who resides before max-pooling layers aims to avoid characteristics loss or "unexpected" filter re-sizing on them, a different number of neurons per layer "improve" flexibility but also adds instability.
 
