@@ -56,12 +56,12 @@ The architecture below is the final step on a very long test of architectures mo
 
 ### Activations Functions Formulas
 
-* **SeLU : **
+* **SeLU :**
     SeLU stands for ***scaled exponential linear units*** : 
     <div id="selu"></div>
     where for standard scaled inputs (mean 0, standard deviation 1), the values are α=1.6732~, λ=1.0507~. This function is monotonic, with a slope very silimar to the ReLU , but also with a slow change on it.
 
-* **SoftMax : **
+* **SoftMax :**
     The softmax function is used in various multiclass classification methods. 
     <div id="softmax"></div>
     The output of the softmax function can be used to represent a categorical distribution.
