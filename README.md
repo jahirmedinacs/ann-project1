@@ -24,7 +24,7 @@ Authors:
 
 ## Architecture
 
-The architecture below is the final step on a very long test of architectures modifications and training variables changes **(See *Old Architectures* Section in the [online Report](https://www.jahirmedina.com/cnn-project2/))**.
+The architecture below is the final step on a very long test of architectures modifications and training variables changes **(See *Old Architectures* Section)**.
 
 ### Description
 
