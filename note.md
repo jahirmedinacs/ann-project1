@@ -1,10 +1,10 @@
 ## Note and Important Links
 
 ### Note
-**Take in consideration this the finaly report of a project (formated to also be only).**
+**Take in consideration this the finaly report of a project (formated to also be online).**
 ### Important Links
 
-- [Relatory Online Version](https://www.jahirmedina.com/cnn-project2/)
+- [Self Online Version](https://www.jahirmedina.com/cnn-project2/)
 
 #### Notebook
 
